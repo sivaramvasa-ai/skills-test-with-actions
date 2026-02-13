@@ -29,7 +29,7 @@ jobs:
                 pip install pytest-cov==6.2.1
             
             - name: Run test and coverage detail
-              run: pytest --cov==src
+              run: pytest --cov=src
 
             - name: Coverage comment
               uses: py-cov-action/python-coverage-comment-action@v3
@@ -37,6 +37,6 @@ jobs:
                 GITHUB_TOKEN: ${{ github.token }}
                 MINIMUM_GREEN: 90
                 MINIMUM_ORANGE: 70
-                
+
             - name: fail if above threshold
               run: coverage report --fail-under=90
